@@ -22,12 +22,6 @@ spec:
           command:
             - node
             - /app/bot.js
-          lifecycle:
-            preStop:
-              exec:
-                command:
-                  - sleep
-                  - 5s
           livenessProbe:
             httpGet:
               path: /healthz
@@ -42,11 +36,11 @@ spec:
               protocol: TCP
           resources:
             requests:
-              cpu: 3m
-              memory: 100Mi
+              cpu: 15m
+              memory: 200Mi
             limits:
               cpu: "1"
-              memory: 150Mi
+              memory: 200Mi
           env:
             - name: NODE_ENV
               valueFrom:
